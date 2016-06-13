@@ -1,5 +1,5 @@
-# Simple React Boilerplate
-This a boilerplate to get you started quickly with ReactJS and Webpack.
+# Simple React Weather App
+A simple React application that uses the Open Weather API with Webpack.
 
 #### Install NodeJS
 Make sure you node [installed](https://nodejs.org/en/). 
