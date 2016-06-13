@@ -2,15 +2,30 @@
 A simple React application that uses the Open Weather API with Webpack.
 
 #### Install NodeJS
-Make sure you node [installed](https://nodejs.org/en/). 
+Make sure node is [installed](https://nodejs.org/en/). 
 
-#### Download Boilerplate
+#### Download app
 Once you have node installed either clone or download the zip for this repository.
 
 ## Getting Started
 In a terminal or command line change to the directory where you downloaded the boilerplate.
 ```
 cd yourdirectory
+```
+
+### Create Environmental variables
+create a file called .env in the root of your app.
+
+```
+touch .env
+```
+
+Make sure you sign up for Open Weather API and get your appid (API Key). Once you have that add it to the env file.
+
+Add the following line to the file:
+
+```
+OPENWEATHERKEY=YOUR_API_KEY
 ```
 
 ### Install Dependencies
