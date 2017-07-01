@@ -1,7 +1,7 @@
 var React = require('react');
 var { IndexLink } = require('react-router');
 
-class Nav extends React.Component {
+export default class Nav extends React.Component {
 	onSearch(e){
     e.preventDefault();
     alert('not yet wired up!');
@@ -40,5 +40,3 @@ class Nav extends React.Component {
     );
 	}
 }
-
-module.exports = Nav;

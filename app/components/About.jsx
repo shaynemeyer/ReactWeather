@@ -1,6 +1,6 @@
 var React = require('react');
 
-var About = (props) => {
+export default function About(props) {
 		return (
 			<div>
 				<h1 className="text-center">About</h1>
@@ -19,6 +19,3 @@ var About = (props) => {
 			</div>
 		)
 }
-
-
-module.exports = About;
