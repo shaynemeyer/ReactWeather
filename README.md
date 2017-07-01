@@ -14,10 +14,16 @@ cd yourdirectory
 ```
 
 ### Create Environmental variables
-create a file called .env in the root of your app.
+create a file called development.env in the root of your app.
 
 ```
-touch .env
+mkdir config
+touch config/development.env
+```
+
+### Add this to your .gitignore file:
+```bash
+config
 ```
 
 Make sure you sign up for Open Weather API and get your appid (API Key). Once you have that add it to the env file.
