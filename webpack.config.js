@@ -1,5 +1,14 @@
 var webpack = require('webpack');
+var path = require('path');
+var envFile = require('node-env-file');
 
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
+try {
+  envFile(path.join(__dirname, `config/${process.env.NODE_ENV}.env` ));
+} catch (e) {
+
+}
 module.exports = {
   entry: [
     'script!jquery/dist/jquery.min.js',
@@ -13,6 +22,12 @@ module.exports = {
     new webpack.ProvidePlugin({
       '$': 'jquery',
       'jQuery': 'jquery'
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        OPENWEATHERKEY: JSON.stringify(process.env.OPENWEATHERKEY)
+      }
     })
   ],
   output: {
@@ -29,8 +44,7 @@ module.exports = {
       WeatherMessage: 'app/components/WeatherMessage.jsx',
       About: 'app/components/About.jsx',
       Examples: 'app/components/Examples.jsx',
-      openWeatherMap: 'app/api/openWeatherMap.jsx',
-      siteConfig: '.env'
+      openWeatherMap: 'app/api/openWeatherMap.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },
@@ -46,5 +60,5 @@ module.exports = {
       }
     ]
   },
-  devtool: 'cheap-module-eval-source-map'
+  devtool: process.env.NODE_ENV === 'production' ? undefined : 'cheap-module-eval-source-map'
 };
