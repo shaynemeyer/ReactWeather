@@ -1,10 +1,17 @@
 var React = require('react');
-var { IndexLink } = require('react-router');
+import { IndexLink, Link } from 'react-router';
 
 export default class Nav extends React.Component {
-	onSearch(e){
+  handleSearch(e) {
     e.preventDefault();
-    alert('not yet wired up!');
+
+    var location = this.refs.search.value;
+    var encodedLocation = encodeURIComponent(location);
+
+    if (location.length > 0) {
+    	this.refs.search.value = '';
+    	window.location.hash = `#/?location=${encodedLocation}`;
+		}
 	}
 
 	render() {
@@ -17,21 +24,21 @@ export default class Nav extends React.Component {
 							<IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Get Weather</IndexLink>
 						</li>
 						<li>
-							<IndexLink to="/about" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>About</IndexLink>
+							<Link to="/about" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>About</Link>
 						</li>
 						<li>
-							<IndexLink to="/examples" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Examples</IndexLink>
+							<Link to="/examples" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Examples</Link>
 						</li>
 					</ul>
 				</div>
 				<div className="top-bar-right">
-					<form action="" onSubmit={this.onSearch.bind(this)}>
+					<form onSubmit={this.handleSearch.bind(this)}>
 						<ul className="menu">
 							<li>
-								<input type="search" placeholder="Search weather by city"/>
+								<input type="search" ref="search" placeholder="Search weather by city"/>
 							</li>
 							<li>
-								<input type="button" className="button" value="Get Weather"/>
+								<input type="submit" className="button" value="Get Weather"/>
 							</li>
 						</ul>
 					</form>
