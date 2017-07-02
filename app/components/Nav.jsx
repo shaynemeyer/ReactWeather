@@ -28,7 +28,7 @@ export default class Nav extends React.Component {
 					<form action="" onSubmit={this.onSearch.bind(this)}>
 						<ul className="menu">
 							<li>
-								<input type="search" placeholder="Search weather"/>
+								<input type="search" placeholder="Search weather by city"/>
 							</li>
 							<li>
 								<input type="button" className="button" value="Get Weather"/>
